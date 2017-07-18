@@ -583,6 +583,10 @@ else (NOT CMAKE_BUILD_TYPE)
   endif (CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif (NOT CMAKE_BUILD_TYPE)
 
+
+EXECUTE_PROCESS (COMMAND ${CMAKE_C_COMPILER} -dumpversion
+                 OUTPUT_VARIABLE GCC_VERSION)
+
 # Set the default Ceres flags to an empty string.
 set (CERES_CXX_FLAGS)
 
