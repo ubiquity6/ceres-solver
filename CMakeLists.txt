@@ -595,7 +595,10 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
     # Linux
     if (CMAKE_SYSTEM_NAME MATCHES "Linux")
       if (NOT GCC_VERSION VERSION_LESS 4.2)
-        set (CERES_CXX_FLAGS "${CERES_CXX_FLAGS} -march=native -mtune=native")
+        ######################## UBQ CHANGES START ###############################
+        # We will directly provide CXX flags, in order to ease cross compilation.
+        #set (CERES_CXX_FLAGS "${CERES_CXX_FLAGS} -march=native -mtune=native")
+        ######################## UBQ CHANGES END ###############################
       endif (NOT GCC_VERSION VERSION_LESS 4.2)
     endif (CMAKE_SYSTEM_NAME MATCHES "Linux")
     # Mac OS X
@@ -614,7 +617,10 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
   endif (CMAKE_COMPILER_IS_GNUCXX)
 endif (CMAKE_BUILD_TYPE STREQUAL "Release")
 
+
+
 set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${CERES_CXX_FLAGS}")
+
 
 if (MINGW)
   # MinGW produces code that segfaults when performing matrix multiplications
