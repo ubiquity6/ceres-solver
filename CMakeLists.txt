@@ -597,7 +597,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
       if (NOT GCC_VERSION VERSION_LESS 4.2)
         ######################## UBQ CHANGES START ###############################
         # We will directly provide CXX flags, in order to ease cross compilation.
-        #set (CERES_CXX_FLAGS "${CERES_CXX_FLAGS} -march=native -mtune=native")
+        set (CERES_CXX_FLAGS "${CERES_CXX_FLAGS} -march=native -mtune=native")
         ######################## UBQ CHANGES END ###############################
       endif (NOT GCC_VERSION VERSION_LESS 4.2)
     endif (CMAKE_SYSTEM_NAME MATCHES "Linux")
