@@ -67,8 +67,8 @@ function(add_ceres_cxx11_requirements_to_target)
         # gracefully, e.g. if a client of Ceres requires C++14, but Ceres was
         # compiled against C++11 then target_compile_options() may not work as
         # expected.
-        target_compile_features(
-          ${TARGET} PUBLIC cxx_alignas cxx_alignof cxx_constexpr)
+        #target_compile_features(
+        #  ${TARGET} PUBLIC cxx_alignas cxx_alignof cxx_constexpr)
       else()
         # CMake version >= 2.8.12 && < 3.1 supports target_compile_options()
         # but not target_compile_features(). For these intermediary versions,

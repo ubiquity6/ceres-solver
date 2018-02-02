@@ -458,6 +458,7 @@ set(CMAKE_REQUIRED_FLAGS ${CMAKE_CXX_FLAGS})
 include(CheckCXXCompilerFlag)
 check_cxx_compiler_flag("-std=c++11" COMPILER_HAS_CXX11_FLAG)
 if (CXX11 AND COMPILER_HAS_CXX11_FLAG)
+  message ("IN HERE!")
   # Update CMAKE_REQUIRED_FLAGS used by CheckCXXSourceCompiles to include
   # -std=c++11 s/t we will detect the C++11 versions of unordered_map &
   # shared_ptr if they exist.
@@ -513,8 +514,8 @@ if (CXX11)
     message("   of Ceres that will require the use of C++11 in client code.")
     message("   ==============================================================")
     list(APPEND CERES_COMPILE_OPTIONS CERES_USE_CXX11)
-    if (COMPILER_HAS_CXX11_FLAG AND
-        CMAKE_VERSION VERSION_LESS "2.8.12")
+    if (COMPILER_HAS_CXX11_FLAG)#AND
+      #CMAKE_VERSION VERSION_LESS "2.8.12")
       # For CMake versions > 2.8.12, the C++11 dependency is rolled into the
       # Ceres target, and all dependent targets, but for older versions of CMake
       # the flag must be specified explicitly both for Ceres and the
